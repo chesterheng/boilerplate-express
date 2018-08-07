@@ -1,0 +1,574 @@
+{
+  "{\"filename\":\"/app/server.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.3": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/server.js",
+      "filenameRelative": "/app/server.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "server.js",
+      "sourceFileName": "server.js",
+      "sourceRoot": "/app",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "server"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\n/******************************************************\n * PLEASE DO NOT EDIT THIS FILE\n * the verification process may break\n * ***************************************************/\n\nvar bGround = require('fcc-express-bground');\nvar myApp = require('./myApp');\nvar express = require('express');\nvar app = express();\n\nif (!process.env.DISABLE_XORIGIN) {\n  app.use(function (req, res, next) {\n    var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];\n    var origin = req.headers.origin || '*';\n    if (!process.env.XORIG_RESTRICT || allowedOrigins.indexOf(origin) > -1) {\n      console.log(origin);\n      res.setHeader('Access-Control-Allow-Origin', origin);\n      res.header(\"Access-Control-Allow-Headers\", \"Origin, X-Requested-With, Content-Type, Accept\");\n    }\n    next();\n  });\n}\n\nvar port = process.env.PORT || 3000;\nbGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function () {\n  bGround.log('Node is listening on port ' + port + '...');\n});\n\n/******************************************************\n * PLEASE DO NOT EDIT THIS FILE\n * the verification process may break\n * ***************************************************/\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcnZlci5qcyJdLCJuYW1lcyI6WyJiR3JvdW5kIiwicmVxdWlyZSIsIm15QXBwIiwiZXhwcmVzcyIsImFwcCIsInByb2Nlc3MiLCJlbnYiLCJESVNBQkxFX1hPUklHSU4iLCJ1c2UiLCJyZXEiLCJyZXMiLCJuZXh0IiwiYWxsb3dlZE9yaWdpbnMiLCJvcmlnaW4iLCJoZWFkZXJzIiwiWE9SSUdfUkVTVFJJQ1QiLCJpbmRleE9mIiwiY29uc29sZSIsImxvZyIsInNldEhlYWRlciIsImhlYWRlciIsInBvcnQiLCJQT1JUIiwic2V0dXBCYWNrZ3JvdW5kQXBwIiwiX19kaXJuYW1lIiwibGlzdGVuIl0sIm1hcHBpbmdzIjoiOztBQUFBOzs7OztBQUtBLElBQUlBLFVBQVVDLFFBQVEscUJBQVIsQ0FBZDtBQUNBLElBQUlDLFFBQVFELFFBQVEsU0FBUixDQUFaO0FBQ0EsSUFBSUUsVUFBVUYsUUFBUSxTQUFSLENBQWQ7QUFDQSxJQUFJRyxNQUFNRCxTQUFWOztBQUVBLElBQUksQ0FBQ0UsUUFBUUMsR0FBUixDQUFZQyxlQUFqQixFQUFrQztBQUNoQ0gsTUFBSUksR0FBSixDQUFRLFVBQVNDLEdBQVQsRUFBY0MsR0FBZCxFQUFtQkMsSUFBbkIsRUFBeUI7QUFDL0IsUUFBSUMsaUJBQWlCLENBQUMsK0JBQUQsRUFBa0MsOEJBQWxDLENBQXJCO0FBQ0EsUUFBSUMsU0FBU0osSUFBSUssT0FBSixDQUFZRCxNQUFaLElBQXNCLEdBQW5DO0FBQ0EsUUFBRyxDQUFDUixRQUFRQyxHQUFSLENBQVlTLGNBQWIsSUFBK0JILGVBQWVJLE9BQWYsQ0FBdUJILE1BQXZCLElBQWlDLENBQUMsQ0FBcEUsRUFBc0U7QUFDakVJLGNBQVFDLEdBQVIsQ0FBWUwsTUFBWjtBQUNBSCxVQUFJUyxTQUFKLENBQWMsNkJBQWQsRUFBNkNOLE1BQTdDO0FBQ0FILFVBQUlVLE1BQUosQ0FBVyw4QkFBWCxFQUEyQyxnREFBM0M7QUFDSjtBQUNEVDtBQUNELEdBVEQ7QUFVRDs7QUFFRCxJQUFJVSxPQUFPaEIsUUFBUUMsR0FBUixDQUFZZ0IsSUFBWixJQUFvQixJQUEvQjtBQUNBdEIsUUFBUXVCLGtCQUFSLENBQTJCbkIsR0FBM0IsRUFBZ0NGLEtBQWhDLEVBQXVDc0IsU0FBdkMsRUFBa0RDLE1BQWxELENBQXlESixJQUF6RCxFQUErRCxZQUFVO0FBQ3ZFckIsVUFBUWtCLEdBQVIsQ0FBWSwrQkFBOEJHLElBQTlCLEdBQXFDLEtBQWpEO0FBQ0QsQ0FGRDs7QUFJQSIsImZpbGUiOiJzZXJ2ZXIuanMiLCJzb3VyY2VSb290IjoiL2FwcCIsInNvdXJjZXNDb250ZW50IjpbIi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKipcbiAqIFBMRUFTRSBETyBOT1QgRURJVCBUSElTIEZJTEVcbiAqIHRoZSB2ZXJpZmljYXRpb24gcHJvY2VzcyBtYXkgYnJlYWtcbiAqICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cbiBcbnZhciBiR3JvdW5kID0gcmVxdWlyZSgnZmNjLWV4cHJlc3MtYmdyb3VuZCcpO1xudmFyIG15QXBwID0gcmVxdWlyZSgnLi9teUFwcCcpO1xudmFyIGV4cHJlc3MgPSByZXF1aXJlKCdleHByZXNzJyk7XG52YXIgYXBwID0gZXhwcmVzcygpO1xuXG5pZiAoIXByb2Nlc3MuZW52LkRJU0FCTEVfWE9SSUdJTikge1xuICBhcHAudXNlKGZ1bmN0aW9uKHJlcSwgcmVzLCBuZXh0KSB7XG4gICAgdmFyIGFsbG93ZWRPcmlnaW5zID0gWydodHRwczovL25hcnJvdy1wbGFuZS5nb21peC5tZScsICdodHRwczovL3d3dy5mcmVlY29kZWNhbXAuY29tJ107XG4gICAgdmFyIG9yaWdpbiA9IHJlcS5oZWFkZXJzLm9yaWdpbiB8fCAnKic7XG4gICAgaWYoIXByb2Nlc3MuZW52LlhPUklHX1JFU1RSSUNUIHx8IGFsbG93ZWRPcmlnaW5zLmluZGV4T2Yob3JpZ2luKSA+IC0xKXtcbiAgICAgICAgIGNvbnNvbGUubG9nKG9yaWdpbik7XG4gICAgICAgICByZXMuc2V0SGVhZGVyKCdBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW4nLCBvcmlnaW4pO1xuICAgICAgICAgcmVzLmhlYWRlcihcIkFjY2Vzcy1Db250cm9sLUFsbG93LUhlYWRlcnNcIiwgXCJPcmlnaW4sIFgtUmVxdWVzdGVkLVdpdGgsIENvbnRlbnQtVHlwZSwgQWNjZXB0XCIpO1xuICAgIH1cbiAgICBuZXh0KCk7XG4gIH0pO1xufVxuXG52YXIgcG9ydCA9IHByb2Nlc3MuZW52LlBPUlQgfHwgMzAwMDtcbmJHcm91bmQuc2V0dXBCYWNrZ3JvdW5kQXBwKGFwcCwgbXlBcHAsIF9fZGlybmFtZSkubGlzdGVuKHBvcnQsIGZ1bmN0aW9uKCl7XG4gIGJHcm91bmQubG9nKCdOb2RlIGlzIGxpc3RlbmluZyBvbiBwb3J0ICcrIHBvcnQgKyAnLi4uJylcbn0pO1xuXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqXG4gKiBQTEVBU0UgRE8gTk9UIEVESVQgVEhJUyBGSUxFXG4gKiB0aGUgdmVyaWZpY2F0aW9uIHByb2Nlc3MgbWF5IGJyZWFrXG4gKiAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovXG5cbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "server.js"
+      ],
+      "names": [
+        "bGround",
+        "require",
+        "myApp",
+        "express",
+        "app",
+        "process",
+        "env",
+        "DISABLE_XORIGIN",
+        "use",
+        "req",
+        "res",
+        "next",
+        "allowedOrigins",
+        "origin",
+        "headers",
+        "XORIG_RESTRICT",
+        "indexOf",
+        "console",
+        "log",
+        "setHeader",
+        "header",
+        "port",
+        "PORT",
+        "setupBackgroundApp",
+        "__dirname",
+        "listen"
+      ],
+      "mappings": ";;AAAA;;;;;AAKA,IAAIA,UAAUC,QAAQ,qBAAR,CAAd;AACA,IAAIC,QAAQD,QAAQ,SAAR,CAAZ;AACA,IAAIE,UAAUF,QAAQ,SAAR,CAAd;AACA,IAAIG,MAAMD,SAAV;;AAEA,IAAI,CAACE,QAAQC,GAAR,CAAYC,eAAjB,EAAkC;AAChCH,MAAII,GAAJ,CAAQ,UAASC,GAAT,EAAcC,GAAd,EAAmBC,IAAnB,EAAyB;AAC/B,QAAIC,iBAAiB,CAAC,+BAAD,EAAkC,8BAAlC,CAArB;AACA,QAAIC,SAASJ,IAAIK,OAAJ,CAAYD,MAAZ,IAAsB,GAAnC;AACA,QAAG,CAACR,QAAQC,GAAR,CAAYS,cAAb,IAA+BH,eAAeI,OAAf,CAAuBH,MAAvB,IAAiC,CAAC,CAApE,EAAsE;AACjEI,cAAQC,GAAR,CAAYL,MAAZ;AACAH,UAAIS,SAAJ,CAAc,6BAAd,EAA6CN,MAA7C;AACAH,UAAIU,MAAJ,CAAW,8BAAX,EAA2C,gDAA3C;AACJ;AACDT;AACD,GATD;AAUD;;AAED,IAAIU,OAAOhB,QAAQC,GAAR,CAAYgB,IAAZ,IAAoB,IAA/B;AACAtB,QAAQuB,kBAAR,CAA2BnB,GAA3B,EAAgCF,KAAhC,EAAuCsB,SAAvC,EAAkDC,MAAlD,CAAyDJ,IAAzD,EAA+D,YAAU;AACvErB,UAAQkB,GAAR,CAAY,+BAA8BG,IAA9B,GAAqC,KAAjD;AACD,CAFD;;AAIA",
+      "file": "server.js",
+      "sourceRoot": "/app",
+      "sourcesContent": [
+        "/******************************************************\n * PLEASE DO NOT EDIT THIS FILE\n * the verification process may break\n * ***************************************************/\n \nvar bGround = require('fcc-express-bground');\nvar myApp = require('./myApp');\nvar express = require('express');\nvar app = express();\n\nif (!process.env.DISABLE_XORIGIN) {\n  app.use(function(req, res, next) {\n    var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];\n    var origin = req.headers.origin || '*';\n    if(!process.env.XORIG_RESTRICT || allowedOrigins.indexOf(origin) > -1){\n         console.log(origin);\n         res.setHeader('Access-Control-Allow-Origin', origin);\n         res.header(\"Access-Control-Allow-Headers\", \"Origin, X-Requested-With, Content-Type, Accept\");\n    }\n    next();\n  });\n}\n\nvar port = process.env.PORT || 3000;\nbGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){\n  bGround.log('Node is listening on port '+ port + '...')\n});\n\n/******************************************************\n * PLEASE DO NOT EDIT THIS FILE\n * the verification process may break\n * ***************************************************/\n\n"
+      ]
+    },
+    "mtime": 1533584202984
+  },
+  "{\"filename\":\"/app/myApp.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/app\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.3": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "express",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "express"
+              }
+            ]
+          },
+          {
+            "source": "path",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "path"
+              }
+            ]
+          },
+          {
+            "source": "body-parser",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "bodyParser"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/app/myApp.js",
+      "filenameRelative": "/app/myApp.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "myApp.js",
+      "sourceFileName": "myApp.js",
+      "sourceRoot": "/app",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/app",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "myApp"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nvar _bodyParser = require('body-parser');\n\nvar _bodyParser2 = _interopRequireDefault(_bodyParser);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = (0, _express2.default)();\n\n// --> 7)  Mount the Logger middleware here\nvar myLogger = function myLogger(req, res, next) {\n  console.log(req.method + ' ' + req.path + ' - ' + req.ip);\n  next();\n};\n\napp.use(myLogger);\n\n// --> 11)  Mount the body-parser middleware  here\napp.use(_bodyParser2.default.urlencoded({ // to support URL-encoded bodies\n  extended: false\n}));\n\n/** 1) Meet the node console. */\nconsole.log(\"Hello World\");\n\n/** 2) A first working Express Server */\n/*app.get(\"/\", (req, res) => {\n  res.send(\"Hello Express\");\n});*/\n\n/** 3) Serve an HTML file */\napp.get(\"/\", function (req, res) {\n  var absolutePath = _path2.default.join(__dirname, \"/views/index.html\");\n  res.sendFile(absolutePath);\n});\n\n/** 4) Serve static assets  */\nvar publicPath = _path2.default.join(__dirname, \"/public\");\napp.use(\"/\", _express2.default.static(publicPath));\n\n/** 5) serve JSON on a specific route */\n/*app.get(\"/json\", (req, res) => {\n  res.json({\"message\": \"Hello json\"});\n});*/\n\n/** 6) Use the .env file to configure the app */\napp.get(\"/json\", function (req, res) {\n  var data = { \"message\": \"Hello json\" };\n  if (process.env.MESSAGE_STYLE === 'uppercase') {\n    data.message = data.message.toUpperCase();\n  }\n  res.json(data);\n});\n\n/** 7) Root-level Middleware - A logger */\n//  place it before all the routes !\n\n\n/** 8) Chaining middleware. A Time server */\nvar requestTime = function requestTime(req, res, next) {\n  req.time = new Date().toString();\n  next();\n};\n\napp.get(\"/now\", requestTime, function (req, res) {\n  res.send({ time: req.time });\n});\n\n/** 9)  Get input from client - Route parameters */\napp.get(\"/:word/echo\", function (req, res) {\n  return res.json({ echo: req.params.word });\n});\n\n/** 10) Get input from client - Query parameters */\n// /name?first=<firstname>&last=<lastname>\napp.route('/name').get(function (req, res) {\n  var firstname = req.query.first;\n  var lastname = req.query.last;\n  var name = firstname + ' ' + lastname;\n  res.send({ name: name });\n}).post();\n\n/** 11) Get ready for POST Requests - the `body-parser` */\n// place it before all the routes !\n\n/** 12) Get data form POST  */\napp.post('/name', function (req, res) {\n  var firstname = req.body.first;\n  var lastname = req.body.last;\n  var name = firstname + ' ' + lastname;\n  res.json({ name: name });\n});\n\n// This would be part of the basic setup of an Express app\n// but to allow FCC to run tests, the server is already active\n/** app.listen(process.env.PORT || 3000 ); */\n\n//---------- DO NOT EDIT BELOW THIS LINE --------------------\n\nmodule.exports = app;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm15QXBwLmpzIl0sIm5hbWVzIjpbImFwcCIsIm15TG9nZ2VyIiwicmVxIiwicmVzIiwibmV4dCIsImNvbnNvbGUiLCJsb2ciLCJtZXRob2QiLCJwYXRoIiwiaXAiLCJ1c2UiLCJib2R5UGFyc2VyIiwidXJsZW5jb2RlZCIsImV4dGVuZGVkIiwiZ2V0IiwiYWJzb2x1dGVQYXRoIiwiam9pbiIsIl9fZGlybmFtZSIsInNlbmRGaWxlIiwicHVibGljUGF0aCIsImV4cHJlc3MiLCJzdGF0aWMiLCJkYXRhIiwicHJvY2VzcyIsImVudiIsIk1FU1NBR0VfU1RZTEUiLCJtZXNzYWdlIiwidG9VcHBlckNhc2UiLCJqc29uIiwicmVxdWVzdFRpbWUiLCJ0aW1lIiwiRGF0ZSIsInRvU3RyaW5nIiwic2VuZCIsImVjaG8iLCJwYXJhbXMiLCJ3b3JkIiwicm91dGUiLCJmaXJzdG5hbWUiLCJxdWVyeSIsImZpcnN0IiwibGFzdG5hbWUiLCJsYXN0IiwibmFtZSIsInBvc3QiLCJib2R5IiwibW9kdWxlIiwiZXhwb3J0cyJdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7OztBQUNBOzs7O0FBQ0E7Ozs7OztBQUVBLElBQU1BLE1BQU0sd0JBQVo7O0FBRUE7QUFDQSxJQUFNQyxXQUFXLFNBQVhBLFFBQVcsQ0FBQ0MsR0FBRCxFQUFNQyxHQUFOLEVBQVdDLElBQVgsRUFBb0I7QUFDbkNDLFVBQVFDLEdBQVIsQ0FBZUosSUFBSUssTUFBbkIsU0FBNkJMLElBQUlNLElBQWpDLFdBQTJDTixJQUFJTyxFQUEvQztBQUNBTDtBQUNELENBSEQ7O0FBS0FKLElBQUlVLEdBQUosQ0FBUVQsUUFBUjs7QUFFQTtBQUNBRCxJQUFJVSxHQUFKLENBQVFDLHFCQUFXQyxVQUFYLENBQXNCLEVBQU07QUFDbENDLFlBQVU7QUFEa0IsQ0FBdEIsQ0FBUjs7QUFJQTtBQUNBUixRQUFRQyxHQUFSLENBQVksYUFBWjs7QUFFQTtBQUNBOzs7O0FBSUE7QUFDQU4sSUFBSWMsR0FBSixDQUFRLEdBQVIsRUFBYSxVQUFDWixHQUFELEVBQU1DLEdBQU4sRUFBYztBQUN6QixNQUFNWSxlQUFlUCxlQUFLUSxJQUFMLENBQVVDLFNBQVYsRUFBcUIsbUJBQXJCLENBQXJCO0FBQ0FkLE1BQUllLFFBQUosQ0FBYUgsWUFBYjtBQUNELENBSEQ7O0FBS0E7QUFDQSxJQUFNSSxhQUFhWCxlQUFLUSxJQUFMLENBQVVDLFNBQVYsRUFBcUIsU0FBckIsQ0FBbkI7QUFDQWpCLElBQUlVLEdBQUosQ0FBUSxHQUFSLEVBQWFVLGtCQUFRQyxNQUFSLENBQWVGLFVBQWYsQ0FBYjs7QUFFQTtBQUNBOzs7O0FBSUE7QUFDQW5CLElBQUljLEdBQUosQ0FBUSxPQUFSLEVBQWlCLFVBQUNaLEdBQUQsRUFBTUMsR0FBTixFQUFjO0FBQzdCLE1BQUltQixPQUFPLEVBQUMsV0FBVyxZQUFaLEVBQVg7QUFDQSxNQUFHQyxRQUFRQyxHQUFSLENBQVlDLGFBQVosS0FBOEIsV0FBakMsRUFBNkM7QUFDM0NILFNBQUtJLE9BQUwsR0FBZUosS0FBS0ksT0FBTCxDQUFhQyxXQUFiLEVBQWY7QUFDRDtBQUNEeEIsTUFBSXlCLElBQUosQ0FBU04sSUFBVDtBQUNELENBTkQ7O0FBUUE7QUFDQTs7O0FBR0E7QUFDQSxJQUFNTyxjQUFjLFNBQWRBLFdBQWMsQ0FBQzNCLEdBQUQsRUFBTUMsR0FBTixFQUFXQyxJQUFYLEVBQW9CO0FBQ3RDRixNQUFJNEIsSUFBSixHQUFXLElBQUlDLElBQUosR0FBV0MsUUFBWCxFQUFYO0FBQ0E1QjtBQUNELENBSEQ7O0FBS0FKLElBQUljLEdBQUosQ0FBUSxNQUFSLEVBQWdCZSxXQUFoQixFQUE2QixVQUFDM0IsR0FBRCxFQUFNQyxHQUFOLEVBQWM7QUFDekNBLE1BQUk4QixJQUFKLENBQVMsRUFBQ0gsTUFBTTVCLElBQUk0QixJQUFYLEVBQVQ7QUFDRCxDQUZEOztBQUlBO0FBQ0E5QixJQUFJYyxHQUFKLENBQVEsYUFBUixFQUF1QixVQUFDWixHQUFELEVBQU1DLEdBQU47QUFBQSxTQUFjQSxJQUFJeUIsSUFBSixDQUFTLEVBQUNNLE1BQU1oQyxJQUFJaUMsTUFBSixDQUFXQyxJQUFsQixFQUFULENBQWQ7QUFBQSxDQUF2Qjs7QUFFQTtBQUNBO0FBQ0FwQyxJQUFJcUMsS0FBSixDQUFVLE9BQVYsRUFBbUJ2QixHQUFuQixDQUF1QixVQUFDWixHQUFELEVBQU1DLEdBQU4sRUFBYztBQUNuQyxNQUFJbUMsWUFBWXBDLElBQUlxQyxLQUFKLENBQVVDLEtBQTFCO0FBQ0EsTUFBSUMsV0FBV3ZDLElBQUlxQyxLQUFKLENBQVVHLElBQXpCO0FBQ0EsTUFBSUMsT0FBVUwsU0FBVixTQUF1QkcsUUFBM0I7QUFDQXRDLE1BQUk4QixJQUFKLENBQVMsRUFBRVUsTUFBTUEsSUFBUixFQUFUO0FBQ0QsQ0FMRCxFQUtHQyxJQUxIOztBQU9BO0FBQ0E7O0FBRUE7QUFDQTVDLElBQUk0QyxJQUFKLENBQVMsT0FBVCxFQUFrQixVQUFDMUMsR0FBRCxFQUFNQyxHQUFOLEVBQWM7QUFDOUIsTUFBSW1DLFlBQVlwQyxJQUFJMkMsSUFBSixDQUFTTCxLQUF6QjtBQUNBLE1BQUlDLFdBQVd2QyxJQUFJMkMsSUFBSixDQUFTSCxJQUF4QjtBQUNBLE1BQUlDLE9BQVVMLFNBQVYsU0FBdUJHLFFBQTNCO0FBQ0F0QyxNQUFJeUIsSUFBSixDQUFTLEVBQUVlLE1BQU1BLElBQVIsRUFBVDtBQUNELENBTEQ7O0FBUUE7QUFDQTtBQUNBOztBQUVBOztBQUVDRyxPQUFPQyxPQUFQLEdBQWlCL0MsR0FBakIiLCJmaWxlIjoibXlBcHAuanMiLCJzb3VyY2VSb290IjoiL2FwcCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBleHByZXNzIGZyb20gJ2V4cHJlc3MnO1xuaW1wb3J0IHBhdGggZnJvbSAncGF0aCc7XG5pbXBvcnQgYm9keVBhcnNlciBmcm9tICdib2R5LXBhcnNlcic7XG5cbmNvbnN0IGFwcCA9IGV4cHJlc3MoKTtcblxuLy8gLS0+IDcpICBNb3VudCB0aGUgTG9nZ2VyIG1pZGRsZXdhcmUgaGVyZVxuY29uc3QgbXlMb2dnZXIgPSAocmVxLCByZXMsIG5leHQpID0+IHtcbiAgY29uc29sZS5sb2coYCR7cmVxLm1ldGhvZH0gJHtyZXEucGF0aH0gLSAke3JlcS5pcH1gKTsgXG4gIG5leHQoKTtcbn07XG5cbmFwcC51c2UobXlMb2dnZXIpO1xuXG4vLyAtLT4gMTEpICBNb3VudCB0aGUgYm9keS1wYXJzZXIgbWlkZGxld2FyZSAgaGVyZVxuYXBwLnVzZShib2R5UGFyc2VyLnVybGVuY29kZWQoeyAgICAgLy8gdG8gc3VwcG9ydCBVUkwtZW5jb2RlZCBib2RpZXNcbiAgZXh0ZW5kZWQ6IGZhbHNlXG59KSk7IFxuXG4vKiogMSkgTWVldCB0aGUgbm9kZSBjb25zb2xlLiAqL1xuY29uc29sZS5sb2coXCJIZWxsbyBXb3JsZFwiKTtcblxuLyoqIDIpIEEgZmlyc3Qgd29ya2luZyBFeHByZXNzIFNlcnZlciAqL1xuLyphcHAuZ2V0KFwiL1wiLCAocmVxLCByZXMpID0+IHtcbiAgcmVzLnNlbmQoXCJIZWxsbyBFeHByZXNzXCIpO1xufSk7Ki9cblxuLyoqIDMpIFNlcnZlIGFuIEhUTUwgZmlsZSAqL1xuYXBwLmdldChcIi9cIiwgKHJlcSwgcmVzKSA9PiB7XG4gIGNvbnN0IGFic29sdXRlUGF0aCA9IHBhdGguam9pbihfX2Rpcm5hbWUsIFwiL3ZpZXdzL2luZGV4Lmh0bWxcIik7XG4gIHJlcy5zZW5kRmlsZShhYnNvbHV0ZVBhdGgpO1xufSk7XG5cbi8qKiA0KSBTZXJ2ZSBzdGF0aWMgYXNzZXRzICAqL1xuY29uc3QgcHVibGljUGF0aCA9IHBhdGguam9pbihfX2Rpcm5hbWUsIFwiL3B1YmxpY1wiKTtcbmFwcC51c2UoXCIvXCIsIGV4cHJlc3Muc3RhdGljKHB1YmxpY1BhdGgpKTtcblxuLyoqIDUpIHNlcnZlIEpTT04gb24gYSBzcGVjaWZpYyByb3V0ZSAqL1xuLyphcHAuZ2V0KFwiL2pzb25cIiwgKHJlcSwgcmVzKSA9PiB7XG4gIHJlcy5qc29uKHtcIm1lc3NhZ2VcIjogXCJIZWxsbyBqc29uXCJ9KTtcbn0pOyovXG5cbi8qKiA2KSBVc2UgdGhlIC5lbnYgZmlsZSB0byBjb25maWd1cmUgdGhlIGFwcCAqL1xuYXBwLmdldChcIi9qc29uXCIsIChyZXEsIHJlcykgPT4ge1xuICBsZXQgZGF0YSA9IHtcIm1lc3NhZ2VcIjogXCJIZWxsbyBqc29uXCJ9O1xuICBpZihwcm9jZXNzLmVudi5NRVNTQUdFX1NUWUxFID09PSAndXBwZXJjYXNlJyl7XG4gICAgZGF0YS5tZXNzYWdlID0gZGF0YS5tZXNzYWdlLnRvVXBwZXJDYXNlKCk7XG4gIH1cbiAgcmVzLmpzb24oZGF0YSk7XG59KTtcbiBcbi8qKiA3KSBSb290LWxldmVsIE1pZGRsZXdhcmUgLSBBIGxvZ2dlciAqL1xuLy8gIHBsYWNlIGl0IGJlZm9yZSBhbGwgdGhlIHJvdXRlcyAhXG5cblxuLyoqIDgpIENoYWluaW5nIG1pZGRsZXdhcmUuIEEgVGltZSBzZXJ2ZXIgKi9cbmNvbnN0IHJlcXVlc3RUaW1lID0gKHJlcSwgcmVzLCBuZXh0KSA9PiB7XG4gIHJlcS50aW1lID0gbmV3IERhdGUoKS50b1N0cmluZygpO1xuICBuZXh0KCk7XG59O1xuXG5hcHAuZ2V0KFwiL25vd1wiLCByZXF1ZXN0VGltZSwgKHJlcSwgcmVzKSA9PiB7XG4gIHJlcy5zZW5kKHt0aW1lOiByZXEudGltZX0pO1xufSk7XG5cbi8qKiA5KSAgR2V0IGlucHV0IGZyb20gY2xpZW50IC0gUm91dGUgcGFyYW1ldGVycyAqL1xuYXBwLmdldChcIi86d29yZC9lY2hvXCIsIChyZXEsIHJlcykgPT4gcmVzLmpzb24oe2VjaG86IHJlcS5wYXJhbXMud29yZH0pKTtcblxuLyoqIDEwKSBHZXQgaW5wdXQgZnJvbSBjbGllbnQgLSBRdWVyeSBwYXJhbWV0ZXJzICovXG4vLyAvbmFtZT9maXJzdD08Zmlyc3RuYW1lPiZsYXN0PTxsYXN0bmFtZT5cbmFwcC5yb3V0ZSgnL25hbWUnKS5nZXQoKHJlcSwgcmVzKSA9PiB7XG4gIGxldCBmaXJzdG5hbWUgPSByZXEucXVlcnkuZmlyc3Q7XG4gIGxldCBsYXN0bmFtZSA9IHJlcS5xdWVyeS5sYXN0O1xuICBsZXQgbmFtZSA9IGAke2ZpcnN0bmFtZX0gJHtsYXN0bmFtZX1gO1xuICByZXMuc2VuZCh7IG5hbWU6IG5hbWUgfSk7XG59KS5wb3N0KCk7XG4gIFxuLyoqIDExKSBHZXQgcmVhZHkgZm9yIFBPU1QgUmVxdWVzdHMgLSB0aGUgYGJvZHktcGFyc2VyYCAqL1xuLy8gcGxhY2UgaXQgYmVmb3JlIGFsbCB0aGUgcm91dGVzICFcblxuLyoqIDEyKSBHZXQgZGF0YSBmb3JtIFBPU1QgICovXG5hcHAucG9zdCgnL25hbWUnLCAocmVxLCByZXMpID0+IHtcbiAgbGV0IGZpcnN0bmFtZSA9IHJlcS5ib2R5LmZpcnN0O1xuICBsZXQgbGFzdG5hbWUgPSByZXEuYm9keS5sYXN0O1xuICBsZXQgbmFtZSA9IGAke2ZpcnN0bmFtZX0gJHtsYXN0bmFtZX1gO1xuICByZXMuanNvbih7IG5hbWU6IG5hbWUgfSk7XG59KTtcblxuXG4vLyBUaGlzIHdvdWxkIGJlIHBhcnQgb2YgdGhlIGJhc2ljIHNldHVwIG9mIGFuIEV4cHJlc3MgYXBwXG4vLyBidXQgdG8gYWxsb3cgRkNDIHRvIHJ1biB0ZXN0cywgdGhlIHNlcnZlciBpcyBhbHJlYWR5IGFjdGl2ZVxuLyoqIGFwcC5saXN0ZW4ocHJvY2Vzcy5lbnYuUE9SVCB8fCAzMDAwICk7ICovXG5cbi8vLS0tLS0tLS0tLSBETyBOT1QgRURJVCBCRUxPVyBUSElTIExJTkUgLS0tLS0tLS0tLS0tLS0tLS0tLS1cblxuIG1vZHVsZS5leHBvcnRzID0gYXBwO1xuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "myApp.js"
+      ],
+      "names": [
+        "app",
+        "myLogger",
+        "req",
+        "res",
+        "next",
+        "console",
+        "log",
+        "method",
+        "path",
+        "ip",
+        "use",
+        "bodyParser",
+        "urlencoded",
+        "extended",
+        "get",
+        "absolutePath",
+        "join",
+        "__dirname",
+        "sendFile",
+        "publicPath",
+        "express",
+        "static",
+        "data",
+        "process",
+        "env",
+        "MESSAGE_STYLE",
+        "message",
+        "toUpperCase",
+        "json",
+        "requestTime",
+        "time",
+        "Date",
+        "toString",
+        "send",
+        "echo",
+        "params",
+        "word",
+        "route",
+        "firstname",
+        "query",
+        "first",
+        "lastname",
+        "last",
+        "name",
+        "post",
+        "body",
+        "module",
+        "exports"
+      ],
+      "mappings": ";;AAAA;;;;AACA;;;;AACA;;;;;;AAEA,IAAMA,MAAM,wBAAZ;;AAEA;AACA,IAAMC,WAAW,SAAXA,QAAW,CAACC,GAAD,EAAMC,GAAN,EAAWC,IAAX,EAAoB;AACnCC,UAAQC,GAAR,CAAeJ,IAAIK,MAAnB,SAA6BL,IAAIM,IAAjC,WAA2CN,IAAIO,EAA/C;AACAL;AACD,CAHD;;AAKAJ,IAAIU,GAAJ,CAAQT,QAAR;;AAEA;AACAD,IAAIU,GAAJ,CAAQC,qBAAWC,UAAX,CAAsB,EAAM;AAClCC,YAAU;AADkB,CAAtB,CAAR;;AAIA;AACAR,QAAQC,GAAR,CAAY,aAAZ;;AAEA;AACA;;;;AAIA;AACAN,IAAIc,GAAJ,CAAQ,GAAR,EAAa,UAACZ,GAAD,EAAMC,GAAN,EAAc;AACzB,MAAMY,eAAeP,eAAKQ,IAAL,CAAUC,SAAV,EAAqB,mBAArB,CAArB;AACAd,MAAIe,QAAJ,CAAaH,YAAb;AACD,CAHD;;AAKA;AACA,IAAMI,aAAaX,eAAKQ,IAAL,CAAUC,SAAV,EAAqB,SAArB,CAAnB;AACAjB,IAAIU,GAAJ,CAAQ,GAAR,EAAaU,kBAAQC,MAAR,CAAeF,UAAf,CAAb;;AAEA;AACA;;;;AAIA;AACAnB,IAAIc,GAAJ,CAAQ,OAAR,EAAiB,UAACZ,GAAD,EAAMC,GAAN,EAAc;AAC7B,MAAImB,OAAO,EAAC,WAAW,YAAZ,EAAX;AACA,MAAGC,QAAQC,GAAR,CAAYC,aAAZ,KAA8B,WAAjC,EAA6C;AAC3CH,SAAKI,OAAL,GAAeJ,KAAKI,OAAL,CAAaC,WAAb,EAAf;AACD;AACDxB,MAAIyB,IAAJ,CAASN,IAAT;AACD,CAND;;AAQA;AACA;;;AAGA;AACA,IAAMO,cAAc,SAAdA,WAAc,CAAC3B,GAAD,EAAMC,GAAN,EAAWC,IAAX,EAAoB;AACtCF,MAAI4B,IAAJ,GAAW,IAAIC,IAAJ,GAAWC,QAAX,EAAX;AACA5B;AACD,CAHD;;AAKAJ,IAAIc,GAAJ,CAAQ,MAAR,EAAgBe,WAAhB,EAA6B,UAAC3B,GAAD,EAAMC,GAAN,EAAc;AACzCA,MAAI8B,IAAJ,CAAS,EAACH,MAAM5B,IAAI4B,IAAX,EAAT;AACD,CAFD;;AAIA;AACA9B,IAAIc,GAAJ,CAAQ,aAAR,EAAuB,UAACZ,GAAD,EAAMC,GAAN;AAAA,SAAcA,IAAIyB,IAAJ,CAAS,EAACM,MAAMhC,IAAIiC,MAAJ,CAAWC,IAAlB,EAAT,CAAd;AAAA,CAAvB;;AAEA;AACA;AACApC,IAAIqC,KAAJ,CAAU,OAAV,EAAmBvB,GAAnB,CAAuB,UAACZ,GAAD,EAAMC,GAAN,EAAc;AACnC,MAAImC,YAAYpC,IAAIqC,KAAJ,CAAUC,KAA1B;AACA,MAAIC,WAAWvC,IAAIqC,KAAJ,CAAUG,IAAzB;AACA,MAAIC,OAAUL,SAAV,SAAuBG,QAA3B;AACAtC,MAAI8B,IAAJ,CAAS,EAAEU,MAAMA,IAAR,EAAT;AACD,CALD,EAKGC,IALH;;AAOA;AACA;;AAEA;AACA5C,IAAI4C,IAAJ,CAAS,OAAT,EAAkB,UAAC1C,GAAD,EAAMC,GAAN,EAAc;AAC9B,MAAImC,YAAYpC,IAAI2C,IAAJ,CAASL,KAAzB;AACA,MAAIC,WAAWvC,IAAI2C,IAAJ,CAASH,IAAxB;AACA,MAAIC,OAAUL,SAAV,SAAuBG,QAA3B;AACAtC,MAAIyB,IAAJ,CAAS,EAAEe,MAAMA,IAAR,EAAT;AACD,CALD;;AAQA;AACA;AACA;;AAEA;;AAECG,OAAOC,OAAP,GAAiB/C,GAAjB",
+      "file": "myApp.js",
+      "sourceRoot": "/app",
+      "sourcesContent": [
+        "import express from 'express';\nimport path from 'path';\nimport bodyParser from 'body-parser';\n\nconst app = express();\n\n// --> 7)  Mount the Logger middleware here\nconst myLogger = (req, res, next) => {\n  console.log(`${req.method} ${req.path} - ${req.ip}`); \n  next();\n};\n\napp.use(myLogger);\n\n// --> 11)  Mount the body-parser middleware  here\napp.use(bodyParser.urlencoded({     // to support URL-encoded bodies\n  extended: false\n})); \n\n/** 1) Meet the node console. */\nconsole.log(\"Hello World\");\n\n/** 2) A first working Express Server */\n/*app.get(\"/\", (req, res) => {\n  res.send(\"Hello Express\");\n});*/\n\n/** 3) Serve an HTML file */\napp.get(\"/\", (req, res) => {\n  const absolutePath = path.join(__dirname, \"/views/index.html\");\n  res.sendFile(absolutePath);\n});\n\n/** 4) Serve static assets  */\nconst publicPath = path.join(__dirname, \"/public\");\napp.use(\"/\", express.static(publicPath));\n\n/** 5) serve JSON on a specific route */\n/*app.get(\"/json\", (req, res) => {\n  res.json({\"message\": \"Hello json\"});\n});*/\n\n/** 6) Use the .env file to configure the app */\napp.get(\"/json\", (req, res) => {\n  let data = {\"message\": \"Hello json\"};\n  if(process.env.MESSAGE_STYLE === 'uppercase'){\n    data.message = data.message.toUpperCase();\n  }\n  res.json(data);\n});\n \n/** 7) Root-level Middleware - A logger */\n//  place it before all the routes !\n\n\n/** 8) Chaining middleware. A Time server */\nconst requestTime = (req, res, next) => {\n  req.time = new Date().toString();\n  next();\n};\n\napp.get(\"/now\", requestTime, (req, res) => {\n  res.send({time: req.time});\n});\n\n/** 9)  Get input from client - Route parameters */\napp.get(\"/:word/echo\", (req, res) => res.json({echo: req.params.word}));\n\n/** 10) Get input from client - Query parameters */\n// /name?first=<firstname>&last=<lastname>\napp.route('/name').get((req, res) => {\n  let firstname = req.query.first;\n  let lastname = req.query.last;\n  let name = `${firstname} ${lastname}`;\n  res.send({ name: name });\n}).post();\n  \n/** 11) Get ready for POST Requests - the `body-parser` */\n// place it before all the routes !\n\n/** 12) Get data form POST  */\napp.post('/name', (req, res) => {\n  let firstname = req.body.first;\n  let lastname = req.body.last;\n  let name = `${firstname} ${lastname}`;\n  res.json({ name: name });\n});\n\n\n// This would be part of the basic setup of an Express app\n// but to allow FCC to run tests, the server is already active\n/** app.listen(process.env.PORT || 3000 ); */\n\n//---------- DO NOT EDIT BELOW THIS LINE --------------------\n\n module.exports = app;\n"
+      ]
+    },
+    "mtime": 1533599045214
+  }
+}

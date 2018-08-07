@@ -1,0 +1,19 @@
+{
+  "name": "fcc-learn-node-with-express",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "^4.16.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "fcc-express-bground": "https://github.com/Em-Ant/fcc-express-bground-pkg.git",
+    "babel-register": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node starter.js"
+  },
+  "engines": {
+    "node": "8.11.3"
+  }
+}
